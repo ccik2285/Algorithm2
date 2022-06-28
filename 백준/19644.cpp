@@ -16,12 +16,12 @@ int main() {
     }
     int damage = 0;
     for(int i=0; i<l; i++){
-        if(timer[i]){ //damage - 살상력
+        if(timer[i]){ //damage - 살상력dd
             damage -= mk;
         }
         if(damage + mk >= zombie[i]){
             damage += mk;
-            timer[i+ml] = 1;
+            timer[i+ml] = 1; 
         }
         else {
             if(c > 0) c--;
