@@ -1,25 +1,29 @@
 #include <iostream>
+
 using namespace std;
-void star(int i, int j, int num)
-{
-    if((i / num)%3 == 1 && (j / num)%3 == 1) {
-        cout << ' ';
+
+void back(int i,int j,int n) {
+    if((i/n) % 3 == 1 && (j/n) % 3 == 1){
+        cout << " ";
     }
-    else
-    {
-        if(num / 3 == 0)
-            cout <<'*' << num;
-        else
-            star(i,j,num/3);
+    else{
+        if(n/3 == 0){
+            cout << "*";
+        } //재귀 종료 조건
+        else{
+          back(i,j,n/3);   
+        }
     }
 }
+
+
 int main() {
-    int num;
-    cin >> num;
-    for(int i = 0; i < num; i++)
-    {
-        for(int j = 0; j < num; j++)
-            star(i,j,num);
-        cout << '\n';
+    int n;
+    cin >> n ;
+    for(int i=0; i<n; i++){
+        for(int j=0; j<n;j++){
+            back(i,j,n);
+        }
+        cout << "\n";
     }
 }
