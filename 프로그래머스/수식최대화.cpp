@@ -37,15 +37,14 @@ long long solution(string expression) {
             {
                 if(oper[i]==tmp_op[j])
                 {
-                    tmp_num[j] = calc(tmp_num[j],tmp_num[j+1],tmp_op[j]);
+                    tmp_num[j] = calc(tmp_num[j],tmp_num[j+1],oper[i]);
                     tmp_op.erase(tmp_op.begin() + j);
                     tmp_num.erase(tmp_num.begin()+j+1);
                     j--;
                 }
             }
-            if(Max < abs(tmp_num[0])) Max = abs(tmp_num[0]);
         }
-        
+             if(Max < abs(tmp_num[0])) Max = abs(tmp_num[0]);
     }while(next_permutation(oper.begin(),oper.end()));
     answer = Max;
     return answer;
