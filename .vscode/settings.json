@@ -3,6 +3,7 @@
         "stack": "cpp",
         "xstring": "cpp",
         "utility": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "string": "cpp"
     }
 }
