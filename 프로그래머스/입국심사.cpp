@@ -28,7 +28,3 @@ long long solution(int n, vector<int> times) {
     }
     return answer;
 }
-
- 0xd00d00 blog's content
- Hope this help you :) 
- original content : https://0xd00d00.github.io/2021/06/29/programmers_entry_test.html
