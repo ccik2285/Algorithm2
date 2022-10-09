@@ -36,9 +36,7 @@ int solution(int n, vector<string> data) {
                 if(s[3] == '=') flag = func1(a,b,gap);
                 else if(s[3] == '<') flag = func2(a,b,gap);
                 else flag = func3(a,b,gap);
-                
                 if(!flag) break;
-
             }
               if(flag==true) answer++;
         }while(next_permutation(arr.begin(),arr.end()));
