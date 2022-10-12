@@ -28,6 +28,7 @@ int solution(int n, vector<vector<int>> edge) {
     visited[1] = true;
     while(!q.empty()){
         int start = q.front();
+        
         q.pop();
         
         for(int i=0; i < graph[start].size(); i++)
