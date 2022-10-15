@@ -37,7 +37,7 @@ int solution(vector<vector<int>> maps)
             dist[next_y][next_x] = dist[now_y][now_x] + 1;
             visited[next_y][next_x] = 1;
         }
-    }
+    }   
     if(!visited[n - 1][m - 1])
         return -1;
     else
