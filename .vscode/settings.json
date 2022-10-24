@@ -6,6 +6,7 @@
         "vector": "cpp",
         "string": "cpp",
         "queue": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "스택 두개로 큐구현.C": "cpp"
     }
 }
