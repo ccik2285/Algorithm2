@@ -55,14 +55,18 @@ vector<int> solution(int n, vector<vector<int>> edges){
             }
         }
     }
-    if(answer.empty()) answer.push_back(-1);
+  //  if(answer.empty()) answer.push_back(-1);
     return answer;
 }
 
 int main(){
- //   vector<vector<int>> edges = {{0,2},{2,1},{2,4},{3,5},{5,4},{5,7},{7,6},{6,8}};
-    vector<vector<int>> tc = {{0,1}, {0,2}, {1,3}, {2,3},{3,4},{4,5},{4,6},{5,7},{6,7},{7,8},{8,9},{8,10},{9,11},{10,11}};
-    vector<int> answer = solution(12,tc);
+    int n;
+    cin >> n;
+    vector<vector<int>> tc(n,vector<int>(n,0));
+    for(int i=0; i < n; i++){
+        cin >> tc[i][0] >> tc[i][1];
+    }
+    vector<int> answer = solution(n,tc);
     for(int i=0; i< answer.size(); i++){
         cout << answer[i] << " ";
     }
