@@ -1,31 +1,33 @@
 #include <string>
 #include <vector>
-#include <map>
-#include <set>
-#include <iostream>
+
 using namespace std;
+int dp[100001][2];
+bool visited[100001] = {false,};
+vector<int> ed[100001];
+void dfs(int idx){
+    dp[idx][0] = 0; //n번째가 켜졌을때
+    dp[idx][1] = 1; //n번째가 꺼졌을때
+    visited[idx] = true;
+    for(int i=0; i < ed[idx].size(); i++){
+        int next = ed[idx][i];
+        if(visited[next]) continue;
+        dfs(next);
+        dp[idx][1] += min(dp[next][1],dp[next][0]);
+        dp[idx][0] += dp[next][1];
+    }
+}
 
 int solution(int n, vector<vector<int>> lighthouse) {
     int answer = 0;
-    map<int,int> mp;
-    set<int> can;
-    vector<vector<int>> graph(n,vector<int>(n,0));
+    
     for(int i=0; i < lighthouse.size(); i++){
-        mp[lighthouse[i][0]]++;
-        mp[lighthouse[i][1]]++;
-        graph[lighthouse[i][0]][lighthouse[i][1]] = 1;
-        graph[lighthouse[i][1]][lighthouse[i][0]] = 1;
-        cout << graph[lighthouse[i][0]][lighthouse[i][1]] << endl;
-        if(mp[lighthouse[i][0]] > 1) {can.insert(lighthouse[i][0]);}
-        else if(mp[lighthouse[i][1]] > 1) {can.insert(lighthouse[i][1]);}
+        int start = lighthouse[i][0]; int end = lighthouse[i][1];
+        ed[start].push_back(end);
+        ed[end].push_back(start);
     }
-    for(auto tp : can){
-        int cnt = 0;
-        for(auto tp2 : can){
-           // cout << tp << " " << tp2 << endl;
-            if(graph[tp][tp2]) cnt++;
-        }
-    }
-
+    
+    dfs(1);
+    answer = min(dp[1][0],dp[1][1]);
     return answer;
 }
