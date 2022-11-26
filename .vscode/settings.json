@@ -9,6 +9,7 @@
         "iostream": "cpp",
         "스택 두개로 큐구현.C": "cpp",
         "ostream": "cpp",
-        "numeric": "cpp"
+        "numeric": "cpp",
+        "set": "cpp"
     }
 }

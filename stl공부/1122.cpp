@@ -5,10 +5,17 @@
 using namespace std;
 
 bool cmp(pair<int, int> vt1, pair<int, int> vt2) {
-	if (vt1.second == vt2.second) {
-		return vt1.first > vt2.first;
+	
+	if(vt1.second < 0 && vt2.second < 0){
+		return vt1.first-vt1.second > vt2.first-vt2.second;
 	}
-	else return vt1.second < vt2.second;
+	else if(vt1.second < 0 ){
+		return vt1.first-vt1.second > vt2.first;
+	}
+	else if(vt2.second < 0){
+		return vt1.first > vt2.first-vt2.second ;
+	}
+	else return vt1.first > vt2.first;
 
 }
 
