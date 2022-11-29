@@ -28,8 +28,6 @@ vector<int> solution(string s, vector<string> times) {
         }
         if(clk + clk2 >= 24){
             if(stoi(s.substr(0,2)) > 0){
-                cout << s << endl;
-
                 flag = 0;
             }
             day++;
@@ -37,8 +35,8 @@ vector<int> solution(string s, vector<string> times) {
         sec = (sec + sec2) % 60;
         min = (min + min2) % 60;
         clk = (clk + clk2) % 24;
+        cout << clk << " " << min << " " << sec << endl;
     }
-    
     if(flag) answer.push_back(1);
     else answer.push_back(0);
 
@@ -50,7 +48,7 @@ vector<int> solution(string s, vector<string> times) {
 
 int main() {
     string s = "2021:04:12:16:08:35";
-    vector<string> t = {"01:06:30:00","01:01:12:00","00:00:09:25","00:09:00:00"};
+    vector<string> t = {"01:06:30:00","01:04:12:00","00:00:10:25"};
 
     vector<int> ans = solution(s,t);
     for(int i=0; i < ans.size(); i++){
