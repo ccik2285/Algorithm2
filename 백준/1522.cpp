@@ -18,11 +18,13 @@ int main() {
     int ans = s.size();
     for(int i=0; i < s.size(); i++){
         int cnt=a; int tmp=0;
-        for(int j=i; j < j+s.size(); j++){
-            if(cnt==0) break;
+        for(int j=i; j < i+s.size(); j++){
+            cout << s[j%s.size()] << " ";
+           // if(cnt==0) break;
             if(s[j%s.size()]=='b') {cnt--; tmp++;}
             else cnt--;
         }
+        cout << endl;
         ans = min(ans,tmp);
     }
     
