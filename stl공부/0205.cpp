@@ -26,8 +26,9 @@ int main() {
             fill++;
         }
     }
+    cout << fill << " "<<maxt<< endl;
     int low = fill / (maxt*maxt);
-    while(maxt % 2 == 0){
+    while(maxt % 2 == 0 && maxt /2 > 1){
         maxt /= 2;
         low *= 4;
     }
