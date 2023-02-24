@@ -1,89 +1,38 @@
 #include <iostream>
-
-#include <string>
-
+#include <stdlib.h>
+#include <vector>
+#include <queue>
 #include <algorithm>
-
+ 
 using namespace std;
-
  
-
-const int MAX = 50;
-
+int n = 0;
+int m = 0;
  
-
-int N, M;
-
-int arr[MAX][MAX];
-
+int max_size = 1 ;
  
-
-int maxSquare(void)
-
-{
-
-        int result = 1;
-
+int main (void){
+    cin>>n>>m;
+    string arr[n];
  
-
-        for (int i = 0; i < N; i++)
-
-        {
-
-                 for (int j = 0; j < M; j++)
-
-                 {
-
-                         for (int k = 1; k < min(N, M); k++)
-
-                         {
-
-                                 //범위 내에 있고 각 꼭지점들이 같은 숫자라면
-
-                                 if (i + k < N && j + k < M && arr[i + k][j] == arr[i][j] && arr[i + k][j + k] == arr[i][j] && arr[i][j + k] == arr[i][j])
-
-                                          result = max(result, k + 1);
-
-                         }
-
-                 }
-
+    for (int i = 0 ; i < n ; i++){
+            cin>>arr[i] ;
+    }
+    for (int i = 0 ; i < n -1; i++){
+        for (int j = 0 ; j < m -1 ; j++){
+            for(int k = 1 ; k < min(n,m) ; k++){
+                if (i+k < n && j+k < m){
+                char value = arr[i][j] ;
+                if (arr[i][j+k] == value && arr[i+k][j] == value && arr[i+k][j+k] == value){
+                    max_size = max(max_size,(k+1)*(k+1));
+             
+                }
+                }
+            }
         }
-
-        return result * result;
-
-}      
-
- 
-
-int main(void)
-
-{
-
-        cin >> N >> M;
-
- 
-
-        for (int i = 0; i < N; i++)
-
-        {
-
-                 string temp;
-
-                 cin >> temp;
-
- 
-
-                 for (int j = 0; j < M; j++)
-
-                         arr[i][j] = temp[j] - '0';
-
-        }
-
-       
-
-        cout << maxSquare() << endl;
-
-        return 0;
-
+    }
+    
+    cout<<max_size<<endl;
+   
+        
 }
