@@ -19,7 +19,7 @@ vector<double> solution(int k, vector<vector<int>> ranges)
         double res = 0;
         for(int i=s;i<e;i++)
             res += (double)(v[i].second+v[i+1].second)/2;
-        if (s>e) answer.push_back(-1.0);
+        if(s > e) answer.push_back(-1.0);
         else answer.push_back(res);
     }
     return answer;
